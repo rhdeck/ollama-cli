@@ -16,6 +16,9 @@ const { version } = JSON.parse(
 const program = new Command();
 program.version(version);
 program.name("Ollama CLI Interface");
+program.description(`Generate text from an installed model using Ollama from the command line
+Requires Ollama to be running  - check your top bar for the cute head
+Example: ollama-cli "Why Is the Sky Blue"`);
 program.usage("<prompt> [options]");
 program.option("-m, --model <model>", "model to use", "llama2");
 program.option("-j --json", "output as json");

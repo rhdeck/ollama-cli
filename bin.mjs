@@ -12,7 +12,6 @@ const { version } = JSON.parse(
   readFileSync(join(__dirname, "package.json"), "utf8")
 );
 const program = new Command();
-console.log("My url be", import.meta.url);
 program.version(version);
 program.name("Ollama CLI Interface");
 program.usage("<prompt> [options]");

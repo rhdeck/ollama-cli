@@ -1,11 +1,18 @@
 #! /usr/bin/env node
 import { Ollama } from "ollama-node";
 import { Command } from "commander";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
-const { version } = JSON.parse(readFileSync("./package.json", "utf8"));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const { version } = JSON.parse(
+  readFileSync(join(__dirname, "package.json"), "utf8")
+);
 const program = new Command();
+console.log("My url be", import.meta.url);
 program.version(version);
 program.name("Ollama CLI Interface");
 program.usage("<prompt> [options]");

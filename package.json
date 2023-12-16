@@ -1,0 +1,19 @@
+{
+  "name": "ollama-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhdeck/ollama-cli"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "ollama-node": "^0.1.27"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "bin": "./bin.mjs"
+}

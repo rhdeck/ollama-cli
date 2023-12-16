@@ -1,3 +1,4 @@
+#! /bin/env node
 import { Ollama } from "ollama-node";
 import { Command } from "commander";
 import { join } from "node:path";

@@ -22,12 +22,14 @@ Example: ollama-cli "Why Is the Sky Blue"`);
 program.usage("<prompt> [options]");
 program.option("-m, --model <model>", "model to use", "llama2");
 program.option("-j --json", "output as json");
+program.option("-c --code", "Extract code from markdown output");
 //#endregion
 //#region command line execution
 program.parse(process.argv);
 const prompt = program.args[0];
 const model = program.getOptionValue("model");
 const isJson = program.getOptionValue("json");
+const isCode = program.getOptionValue("code");
 if (!prompt) program.help();
 else
   (async () => {
@@ -37,6 +39,12 @@ else
     if (isJson) {
       console.log(JSON.stringify(obj));
       return;
+    } else if (isCode) {
+      const markDown = obj.output;
+      const startOfCode = markDown.indexOf("```");
+      const endOfCode = markDown.indexOf("```", startOfCode + 1);
+      const code = markDown.substring(startOfCode + 3, endOfCode);
+      console.log(code);
     } else {
       console.log(obj.output);
     }

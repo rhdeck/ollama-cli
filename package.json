@@ -16,5 +16,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
-  "bin": "./bin.mjs"
+  "bin": {
+    "ollama-cli": "./bin.mjs"
+  }
 }
